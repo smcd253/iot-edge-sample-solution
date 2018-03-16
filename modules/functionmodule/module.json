@@ -2,7 +2,7 @@
     "$schema-version": "0.0.1",
     "description": "",
     "image": {
-        "repository": "function",
+        "repository": "qisunedgebugbash.azurecr.io/function",
         "tag": {
             "version": "0.0.1",
             "platforms": {
