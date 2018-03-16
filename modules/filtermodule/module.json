@@ -2,7 +2,7 @@
     "$schema-version": "0.0.1",
     "description": "",
     "image": {
-        "repository": "multi-1",
+        "repository": "qisunedgebugbash.azurecr.io/multi-1",
         "tag": {
             "version": "0.0.1",
             "platforms": {
