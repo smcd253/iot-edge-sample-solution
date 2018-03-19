@@ -121,7 +121,7 @@ namespace filtermodule
                 }
                 pipeMessage.Properties.Add("C# module 3", "This property is added from C# module 3");
                 await deviceClient.SendEventAsync("output1", pipeMessage);
-                Console.WriteLine("Received message sent");
+                Console.WriteLne("Received message sent");
             }
             return MessageResponse.Completed;
         }
