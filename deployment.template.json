@@ -38,6 +38,16 @@
               "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
               "createOptions": ""
             }
+          },
+          "FilterModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.FilterModule.amd64}",
+              "createOptions": ""
+            }
           }
         }
       }
