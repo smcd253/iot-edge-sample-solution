@@ -3,6 +3,7 @@ WORKDIR /app
 
 COPY *.csproj ./
 COPY NuGet.Config* ./
+ENV NUGET_API_KEY $NUGET_API_KEY
 RUN dotnet restore
 
 COPY . ./
