@@ -18,6 +18,5 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0-preview2-final" />
     <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
     <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.6.0-preview-001" />
-    <PackageReference Include="Zhiqing.hello" Version="1.0.0" />
   </ItemGroup>
 </Project>
