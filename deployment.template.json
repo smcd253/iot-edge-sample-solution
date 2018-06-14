@@ -15,9 +15,9 @@
                 "address": "edgeshared.azurecr.io"
               },
               "YourACR": {
-                  "username":"${ACR_USER}",
-                  "password":"${ACR_PASS}",
-                  "address":"${ACR_SERVER}"
+                "username": "${ACR_USER}",
+                "password": "${ACR_PASS}",
+                "address": "${ACR_SERVER}"
               }
             }
           }
@@ -59,9 +59,6 @@
             "settings": {
               "image": "${MODULES.CSharpModule.amd64}",
               "createOptions": ""
-            },
-            "properties.desired": {
-              "TemperatureThreshold": 25
             }
           }
         }
@@ -77,6 +74,11 @@
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
         }
+      }
+    },
+    "CSharpModule": {
+      "properties.desired": {
+        "TemperatureThreshold": 25
       }
     }
   }
