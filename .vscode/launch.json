@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug IoT Edge Module SampleModule (.NET Core)",
+      "name": "Debug IoT Edge Module CSharpModule (.NET Core)",
       "type": "coreclr",
       "request": "attach",
       "processId": "${command:pickRemoteProcess}",
@@ -11,7 +11,7 @@
         "pipeArgs": [
           "exec",
           "-i",
-          "SampleModule",
+          "CSharpModule",
           "sh",
           "-c"
         ],
@@ -20,7 +20,7 @@
         "quoteArgs": true
       },
       "sourceFileMap": {
-        "/app": "${workspaceFolder}/modules/SampleModule"
+        "/app": "${workspaceFolder}/modules/CSharpModule"
       },
       "justMyCode": true
     }
