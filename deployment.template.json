@@ -56,13 +56,23 @@
               "createOptions": ""
             }
           },
-          "CSharpModule": {
+          "FilterModule": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.CSharpModule.amd64}",
+              "image": "${MODULES.FilterModule.amd64}",
+              "createOptions": ""
+            }
+          },
+          "FilterModuleACR": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.FilterModuleACR.amd64}",
               "createOptions": ""
             }
           }
