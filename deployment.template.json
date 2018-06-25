@@ -31,7 +31,7 @@
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "edgeshared.azurecr.io/microsoft/azureiotedge-agent:13885920-linux-amd64",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
               "createOptions": ""
             }
           },
@@ -40,7 +40,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "edgeshared.azurecr.io/microsoft/azureiotedge-hub:13885920-linux-amd64",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
             }
           }
@@ -52,7 +52,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "edgeshared.azurecr.io/microsoft/azureiotedge-simulated-temperature-sensor:13885920-linux-amd64",
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
               "createOptions": ""
             }
           },
@@ -83,8 +83,10 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToCSharpModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/CSharpModule/inputs/input1\")",
-          "CSharpModuleToIoTHub": "FROM /messages/modules/CSharpModule/outputs/output1 INTO $upstream"
+          "sensorToCSharpModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/FilterModule/inputs/input1\")",
+          "sensorToCSharpModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/FilterModuleACR/inputs/input1\")",
+          "CSharpModuleToIoTHub": "FROM /messages/modules/FilterModule/outputs/output1 INTO $upstream",
+          "CSharpModuleToIoTHub2": "FROM /messages/modules/FilterModuleACR/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
