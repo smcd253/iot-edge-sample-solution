@@ -56,6 +56,16 @@
               "createOptions": ""
             }
           },
+          "CSharpModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.CSharpModule.amd64}",
+              "createOptions": ""
+            }
+          },
           "FilterModule": {
             "version": "1.0",
             "type": "docker",
