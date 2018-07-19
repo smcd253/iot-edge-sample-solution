@@ -1,6 +1,7 @@
 FROM microsoft/dotnet:2.0-sdk AS build-env
 WORKDIR /app
 
+COPY NuGet.Config* ./
 COPY *.csproj ./
 RUN dotnet restore
 
