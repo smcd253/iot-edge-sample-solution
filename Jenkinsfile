@@ -1,5 +1,14 @@
+def genericSh(cmd) {
+  if (isUnix()) {
+    sh cmd
+  }
+  else {
+    bat cmd
+  }
+}
+
 node {
-  stage('Checkout'){
+  stage('Checkout') {
     checkout scm
   }
 
