@@ -1,5 +1,5 @@
 {
-  "moduleContent": {
+  "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
         "schemaVersion": "1.0",
@@ -7,21 +7,14 @@
           "type": "docker",
           "settings": {
             "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {
-              "EdgeShared": {
-                "username": "EdgeShared",
-                "password": "WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
-                "address": "edgeshared.azurecr.io"
-              }
-            }
+            "loggingOptions": ""
           }
         },
         "systemModules": {
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "image": "microsoft/azureiotedge-agent:1.0-preview",
               "createOptions": ""
             }
           },
@@ -30,29 +23,19 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+              "image": "microsoft/azureiotedge-hub:1.0-preview",
+              "createOptions": ""
             }
           }
         },
         "modules": {
-          "tempSensor": {
+          "temp-sensor-module": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": ""
-            }
-          },
-          "CSharpModule": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.CSharpModule.amd64}",
+              "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
               "createOptions": ""
             }
           },
@@ -65,16 +48,6 @@
               "image": "${MODULES.FilterModule.amd64}",
               "createOptions": ""
             }
-          },
-          "FilterModuleACR": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.FilterModuleACR.amd64}",
-              "createOptions": ""
-            }
           }
         }
       }
@@ -83,19 +56,18 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToCSharpModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/FilterModule/inputs/input1\")",
-          "sensorToCSharpModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/FilterModuleACR/inputs/input1\")",
-          "CSharpModuleToIoTHub": "FROM /messages/modules/FilterModule/outputs/output1 INTO $upstream",
-          "CSharpModuleToIoTHub2": "FROM /messages/modules/FilterModuleACR/outputs/output1 INTO $upstream"
+          "sensorToFilter1": "FROM /messages/modules/temp-sensor-module/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/FilterModule/inputs/input1\")",
+          "filter2": "FROM /messages/modules/FilterModule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
         }
       }
     },
-    "CSharpModule": {
+    "filtermodule": {
       "properties.desired": {
-        "TemperatureThreshold": 25
+        "schemaVersion": "1.0",
+        "TemperatureThreshold": 21
       }
     }
   }
