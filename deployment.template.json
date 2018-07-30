@@ -7,24 +7,7 @@
           "type": "docker",
           "settings": {
             "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {
-              "EdgeShared": {
-                "username": "EdgeShared",
-                "password": "WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
-                "address": "edgeshared.azurecr.io"
-              },
-              "YourACR": {
-                "username": "${ACR_USER}",
-                "password": "${ACR_PASS}",
-                "address": "${ACR_SERVER}"
-              },
-              "YourACR2": {
-                "username": "${ACR2_USER}",
-                "password": "${ACR2_PASS}",
-                "address": "${ACR2_SERVER}"
-              }
-            }
+            "loggingOptions": ""
           }
         },
         "systemModules": {
@@ -56,7 +39,6 @@
               "createOptions": ""
             }
           },
-
           "tempSensor": {
             "version": "1.0",
             "type": "docker",
@@ -64,36 +46,6 @@
             "restartPolicy": "always",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": ""
-            }
-          },
-          "CSharpModule": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.CSharpModule.amd64}",
-              "createOptions": ""
-            }
-          },
-          "FilterModule": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.FilterModule.amd64}",
-              "createOptions": ""
-            }
-          },
-          "FilterModuleACR": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.FilterModuleACR.amd64}",
               "createOptions": ""
             }
           }
