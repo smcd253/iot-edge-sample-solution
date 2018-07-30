@@ -13,6 +13,16 @@
                 "username": "EdgeShared",
                 "password": "WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
                 "address": "edgeshared.azurecr.io"
+              },
+              "YourACR": {
+                "username": "${ACR_USER}",
+                "password": "${ACR_PASS}",
+                "address": "${ACR_SERVER}"
+              },
+              "YourACR2": {
+                "username": "${ACR2_USER}",
+                "password": "${ACR2_PASS}",
+                "address": "${ACR2_SERVER}"
               }
             }
           }
