@@ -55,6 +55,36 @@
               "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
               "createOptions": ""
             }
+          },
+          "CSharpModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.CSharpModule.amd64}",
+              "createOptions": ""
+            }
+          },
+          "FilterModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.FilterModule.amd64}",
+              "createOptions": ""
+            }
+          },
+          "FilterModuleACR": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.FilterModuleACR.amd64}",
+              "createOptions": ""
+            }
           }
         }
       }
