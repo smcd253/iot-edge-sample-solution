@@ -39,26 +39,6 @@
               "createOptions": ""
             }
           },
-          "filtermodule": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.filtermodule.amd64}",
-              "createOptions": ""
-            }
-          },
-          "filtermodule2": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.filtermodule2.amd64}",
-              "createOptions": ""
-            }
-          },
           "filtermodule3": {
             "version": "1.0",
             "type": "docker",
@@ -66,16 +46,6 @@
             "restartPolicy": "always",
             "settings": {
               "image": "${MODULES.filtermodule3.amd64}",
-              "createOptions": ""
-            }
-          },
-          "functionmodule": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.functionmodule.amd64}",
               "createOptions": ""
             }
           }
