@@ -45,7 +45,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.FilterModule.amd64}",
+              "image": "${MODULES.FilterModule.arm32v7}",
               "createOptions": ""
             }
           }
