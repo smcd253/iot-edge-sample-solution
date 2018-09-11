@@ -13,7 +13,7 @@ node {
   }
 
   stage('Build') {
-    azureIoTEdgePush dockerRegistryType: 'acr', acrName: 'zhiqing', modulesToBuild: '*', azureCredentialId: 'azuresp', resourceGroup: 'iotedge-jenkins-automation-test', rootPath: './'
+    azureIoTEdgePush dockerRegistryType: 'acr', acrName: 'zhiqing', modulesToBuild: '*', azureCredentialsId: 'azuresp', resourceGroup: 'iotedge-jenkins-automation-test', rootPath: './'
   }
 
   stage('Deploy') {
