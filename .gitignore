@@ -1,3 +1,4 @@
-.config/
-**/obj
+config/
+.env
 **/bin
+**/obj
