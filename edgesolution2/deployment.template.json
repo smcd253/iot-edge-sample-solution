@@ -17,12 +17,12 @@
               "YourACR": {
                 "username": "${ACR_USER}",
                 "password": "${ACR_PASS}",
-                "address": "${ACR_SERVER}"
+                "address": "zhiqing.azurecr.io"
               },
               "YourACR2": {
                 "username": "${ACR2_USER}",
                 "password": "${ACR2_PASS}",
-                "address": "${ACR2_SERVER}"
+                "address": "docker.io"
               }
             }
           }
