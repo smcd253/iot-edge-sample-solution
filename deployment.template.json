@@ -37,7 +37,8 @@
             "settings": {
               "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
               "createOptions": "",
-              "customValue": "${ZHIQING}"
+              "customValue": "${ZHIQING}",
+              "vsts-build-number": "${Build.BuildNumber}"
             }
           },
           "FilterModule": {
