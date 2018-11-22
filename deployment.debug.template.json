@@ -73,7 +73,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.SampleModule}",
+              "image": "${MODULES.SampleModule.debug}",
               "createOptions": {}
             }
           }
