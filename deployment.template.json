@@ -52,7 +52,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.SampleModule.amd64}",
+              "image": "${MODULES.SampleModule}",
               "createOptions": "{}"
             }
           }
