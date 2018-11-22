@@ -63,6 +63,7 @@
             "status": "running",
             "restartPolicy": "always",
             "customValue": "${ZHIQING}",
+            "vsts-build-number": "${BUILD_BUILDNUMBER}",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
               "createOptions": {}
