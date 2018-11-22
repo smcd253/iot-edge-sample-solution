@@ -62,7 +62,6 @@
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
-            "customValue": "${ZHIQING}",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
               "createOptions": {}
@@ -74,7 +73,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.SampleModule}",
+              "image": "${MODULES.SampleModule.debug}",
               "createOptions": {}
             }
           }
