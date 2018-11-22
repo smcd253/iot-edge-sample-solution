@@ -10,20 +10,10 @@
             "minDockerVersion": "v1.25",
             "loggingOptions": "",
             "registryCredentials": {
-              "EdgeShared": {
-                "username": "fake",
-                "password": "fake",
-                "address": "fake.azurecr.io"
-              },
-              "YourACR": {
-                "username": "${ACR_USER}",
-                "password": "${ACR_PASS}",
+              "docker": {
+                "username": "$CONTAINER_REGISTRY_USERNAME_docker",
+                "password": "$CONTAINER_REGISTRY_PASSWORD_docker",
                 "address": "docker.io"
-              },
-              "YourACR2": {
-                "username": "${ACR2_USER}",
-                "password": "${ACR2_PASS}",
-                "address": "https://zhiqing.azurecr.io/"
               }
             }
           }
@@ -83,7 +73,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.SampleModule}",
+              "image": "${MODULES.SampleModule.debug}",
               "createOptions": {}
             }
           }

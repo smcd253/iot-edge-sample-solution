@@ -1,5 +1,6 @@
 {
-  "moduleContent": {
+  "$schema-template": "1.0.0",
+  "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
         "schemaVersion": "1.0",
@@ -9,19 +10,9 @@
             "minDockerVersion": "v1.25",
             "loggingOptions": "",
             "registryCredentials": {
-              "EdgeShared": {
-                "username": "EdgeShared",
-                "password": "WPruG6Zt4OBs4hZySY9VQAp2dKEM/pDn",
-                "address": "edgeshared.azurecr.io"
-              },
-              "YourACR": {
-                "username": "${ACR_USER}",
-                "password": "${ACR_PASS}",
-                "address": "zhiqing.azurecr.io"
-              },
-              "YourACR2": {
-                "username": "${ACR2_USER}",
-                "password": "${ACR2_PASS}",
+              "docker": {
+                "username": "$CONTAINER_REGISTRY_USERNAME_docker",
+                "password": "$CONTAINER_REGISTRY_PASSWORD_docker",
                 "address": "docker.io"
               }
             }
@@ -32,7 +23,7 @@
             "type": "docker",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-              "createOptions": ""
+              "createOptions": {}
             }
           },
           "edgeHub": {
@@ -41,7 +32,27 @@
             "restartPolicy": "always",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+              "createOptions": {
+                "HostConfig": {
+                  "PortBindings": {
+                    "5671/tcp": [
+                      {
+                        "HostPort": "5671"
+                      }
+                    ],
+                    "8883/tcp": [
+                      {
+                        "HostPort": "8883"
+                      }
+                    ],
+                    "443/tcp": [
+                      {
+                        "HostPort": "443"
+                      }
+                    ]
+                  }
+                }
+              }
             }
           }
         },
@@ -53,17 +64,17 @@
             "restartPolicy": "always",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": ""
+              "createOptions": {}
             }
           },
-          "FilterModuleACR": {
+          "SampleModule": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.FilterModuleACR.amd64}",
-              "createOptions": ""
+              "image": "${MODULES.SampleModuleACR}",
+              "createOptions": {}
             }
           }
         }
@@ -73,16 +84,12 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "CSharpModuleToIoTHub2": "FROM /messages/modules/FilterModuleACR/outputs/output1 INTO $upstream"
+          "SampleModuleToIoTHub": "FROM /messages/modules/SampleModule/outputs/* INTO $upstream",
+          "sensorToSampleModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/SampleModule/inputs/input1\")"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
         }
-      }
-    },
-    "CSharpModule": {
-      "properties.desired": {
-        "TemperatureThreshold": 25
       }
     }
   }
