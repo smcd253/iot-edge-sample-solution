@@ -3,9 +3,9 @@ WORKDIR /app
 
 COPY . ./
 
-RUN cd modules/SampleModule ; dotnet restore
+RUN cd modules/SampleModule && dotnet restore
 
-RUN cd modules/SampleModule ; dotnet publish -c Release -o out
+RUN cd modules/SampleModule && dotnet publish -c Release -o out
 
 FROM microsoft/dotnet:2.1-runtime
 WORKDIR /app
