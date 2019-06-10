@@ -1,4 +1,4 @@
-namespace SampleModule
+namespace IotEdgeModule1
 {
     using System;
     using System.IO;
@@ -9,7 +9,7 @@ namespace SampleModule
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Azure.Devices.Client;
-    using mjadd;
+    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
 
     class Program
     {
@@ -80,7 +80,6 @@ namespace SampleModule
                 {
                     pipeMessage.Properties.Add(prop.Key, prop.Value);
                 }
-                pipeMessage.Properties.Add("fake", "abc" + MJUtil.mjadd(1,2));
                 await moduleClient.SendEventAsync("output1", pipeMessage);
                 Console.WriteLine("Received message sent");
             }

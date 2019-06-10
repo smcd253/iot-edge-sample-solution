@@ -1,4 +1,4 @@
-config/
+.vs
 .env
-**/bin
-**/obj
+**/config/
+*.user
