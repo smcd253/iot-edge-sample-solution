@@ -67,7 +67,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULEDIR<..\\IotEdgeModule1>}",
+              "image": "${MODULEDIR<../IotEdgeModule1>}",
               "createOptions": {}
             }
           }
