@@ -23,7 +23,7 @@
               "YourACR2": {
                 "username": "${ACR2_USER}",
                 "password": "${ACR2_PASS}",
-                "address": "https://zhiqing.azurecr.io/"
+                "address": "https://aziotedgedevclitest.azurecr.io/"
               }
             }
           }
