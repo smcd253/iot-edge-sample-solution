@@ -74,7 +74,7 @@
             "restartPolicy": "always",
             "settings": {
               "image": "${MODULES.SampleModule}",
-              "createOptions": {}
+              "createOptions": "{\"a\":\"b\""
             }
           }
         }
