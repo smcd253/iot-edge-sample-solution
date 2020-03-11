@@ -1,7 +1,7 @@
 {
   "$schema-template": "1.0.0",
   "modulesContent": {
-    "$edge23Agent": {
+    "$edgeAgent": {
       "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
@@ -15,7 +15,8 @@
                 "password": "$CONTAINER_REGISTRY_PASSWORD_docker",
                 "address": "docker.io"
               }
-            }
+            },
+            "test####$$":"test"
           }
         },
         "systemModules": {
