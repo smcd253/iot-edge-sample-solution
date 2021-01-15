@@ -2,7 +2,7 @@
     "$schema-version": "0.0.1",
     "description": "",
     "image": {
-        "repository": "${ACR2_ADDRESS}/iot-edge-mm-dh1",
+        "repository": "iotedgetoolscontainerregistry.azurecr.io/iot-edge-mm-dh1",
         "tag": {
             "version": "0.0.1",
             "platforms": {
